@@ -27,6 +27,10 @@ public final class DockHook implements IXposedHookLoadPackage {
                     if (!(param.thisObject instanceof View) || param.args == null || param.args.length != 1) return;
                     refreshOffset((View) param.thisObject);
                     float original = ((Float) param.args[0]).floatValue();
+                    XposedBridge.log("DockAdjust: CALLBACK original=" + original
+        + " offsetDp=" + offsetDp
+        + " density=" + ((View) param.thisObject)
+        .getResources().getDisplayMetrics().density);
                     float density = ((View) param.thisObject).getResources().getDisplayMetrics().density;
                     param.args[0] = Float.valueOf(original + offsetDp * density);
                 }
