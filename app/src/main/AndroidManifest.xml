@@ -1,0 +1,17 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <queries>
+        <provider android:authorities="com.example.dockadjust.prefs" />
+    </queries>
+    <application android:label="Dock 调节" android:theme="@android:style/Theme.Material.Light.NoActionBar" android:allowBackup="false">
+        <meta-data android:name="xposedmodule" android:value="true" />
+        <meta-data android:name="xposeddescription" android:value="调整 ColorOS Launcher Dock 的垂直位置（实验版）" />
+        <meta-data android:name="xposedminversion" android:value="93" />
+        <provider android:name=".SettingsProvider" android:authorities="com.example.dockadjust.prefs" android:exported="true" android:grantUriPermissions="false" />
+        <activity android:name=".MainActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
